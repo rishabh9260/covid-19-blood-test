@@ -26,7 +26,7 @@ with st.form("blood_test_form"):
         lymphocytes = st.number_input(label="Lymphocytes", min_value=0.0, max_value=1000.0, value=0.0)
         monocytes = st.number_input(label="Monocytes", min_value=0.0, max_value=1000.0, value=0.0)
         neutrophils = st.number_input(label="Neutrophils", min_value=0.0, max_value=1000.0, value=0.0)
-        DAY_DIFFERENCE = st.number_input(label="Days Since Symptoms", min_value=0.0, max_value=1000.0, value=0.0)
+        DAY_DIFFERENCE = st.number_input(label="Days Since Symptoms", min_value=0, max_value=14, value=0)
 
     NRS_values = {
         "Anisocitose +": 0,
@@ -79,7 +79,7 @@ if submitted:
         st.success("Covid-19 Negative")
         st.info(f"Probability: {(prediction_proba[0][0] * 100):.2f}")
     else:
-        st.success("Covid-19 Positive")
+        st.error("Covid-19 Positive")
         st.info(f"Probability: {(prediction_proba[0][1] * 100):.2f}")
 else:
     st.write('Fill the values and click on "Submit" to predict covid-19 status.')
