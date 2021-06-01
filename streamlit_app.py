@@ -72,9 +72,9 @@ if submitted:
     prediction_proba = predict(predict_data)
     if prediction_proba[0][0] > 0.5:
         st.success("Covid-19 Negative")
-        st.info(f"Probability: {prediction_proba[0][0] * 100}")
+        st.info(f"Probability: {(prediction_proba[0][0] * 100):.2f}")
     else:
         st.success("Covid-19 Positive")
-        st.info(f"Probability: {prediction_proba[0][1] * 100}")
+        st.info(f"Probability: {(prediction_proba[0][1] * 100):.2f}")
 else:
     st.write('Fill the values and click on "Submit" to predict covid-19 status.')
