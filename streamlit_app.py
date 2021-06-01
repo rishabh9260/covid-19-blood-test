@@ -60,10 +60,15 @@ predict_data = [hcm, hemoglobin, mchc, rdw_cv, rdw_sd, vcm, basophils,
                 NRS_values['Microcitose +++']]
 
 
+@st.cache(allow_output_mutation=True, show_spinner=False)
+def load_model():
+    return pickle.load(open("covid-xgb.pickle.dat", "rb"))
+
+
 @st.cache(show_spinner=False)
 def predict(data):
     with st.spinner('Predicting...'):
-        classifier = pickle.load(open("covid-xgb.pickle.dat", "rb"))
+        classifier = load_model()
         probability = classifier.predict_proba(numpy.array(data).reshape((1, -1)))
     return probability
 
