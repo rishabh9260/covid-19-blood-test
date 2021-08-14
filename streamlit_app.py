@@ -83,3 +83,5 @@ if submitted:
         st.info(f"Probability: {(prediction_proba[0][1] * 100):.2f}")
 else:
     st.write('Fill the values and click on "Submit" to predict covid-19 status.')
+
+st.write('Made by Rishabh Jain & Param Chauhan @ Netaji Subhas Institute of Technology')
