@@ -6,7 +6,7 @@ import xgboost
 st.title("Covid-19 Prediction using Blood Test")
 
 with st.form("blood_test_form"):
-    col1, col2, col3, col4 = st.beta_columns(4)
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
         hcm = st.number_input(label="HCM", min_value=0.0, max_value=1000.0, value=0.0)
         hemoglobin = st.number_input(label="Hemoglobin", min_value=0.0, max_value=1000.0, value=0.0)
